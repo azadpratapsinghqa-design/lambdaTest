@@ -1,9 +1,7 @@
 // playwright.config.js
 const { defineConfig, devices } = require("@playwright/test");
 require("dotenv").config();
-
 const isLambdaTest = process.env.LAMBDATEST === "true";
-
 function ltCapabilities(testName) {
   return {
     browserName: "Chrome",

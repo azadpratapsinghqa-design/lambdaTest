@@ -50,7 +50,6 @@ amazon-automation/
 ```bash
 # 1. Clone the repository
 git clone https://github.com/azadpratapsinghqa-design/lambdaTest.git
-cd amazon-automation
 
 # 2. Install npm dependencies
 npm install
