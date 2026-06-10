@@ -49,7 +49,7 @@ amazon-automation/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/amazon-automation.git
+git clone https://github.com/azadpratapsinghqa-design/lambdaTest.git
 cd amazon-automation
 
 # 2. Install npm dependencies
@@ -63,42 +63,46 @@ npx playwright install --with-deps chromium
 
 ## Running the Tests
 
-### Parallel execution (default — both tests run at the same time)
-
-```bash
+### Run all tests (parallel by default)
 npm test
+
+### Run with 2 parallel workers
+npm run test:parallel
+
+### Run with browser visible
+npm run test:headed
+
+### View HTML report
+npm run test:report
+
+### Run on LambdaTest
+npm run test:lambdatest
 ```
 
 Both `iphone.test.js` and `galaxy.test.js` launch simultaneously using **2 Playwright workers**.  
 You will see interleaved log output from each worker, confirming true parallel execution.
 
-### Headed mode (watch the browser)
-
-```bash
-npm run test:headed
-```
 
 ### View the HTML report after a run
-
-```bash
 npm run test:report
-```
+# or
+npx playwright show-report
 
-### What you will see in the console
+### What you will see in the console 
 
 ```
 ──────────────────────────────────────────────────────────────
   PRICE RETRIEVED
   Test    : iPhone Test
-  Product : Apple iPhone 15 (128 GB) – Black
-  Price   : $799
+  Product : iPhone 16e 128 GB: Built for Apple Intelligence, A18 Chip, Supersized Battery Life, 48MP Fusion. Camera, 15.40 cm (6.1″) Super Retina XDR Display; Black
+  Price   : 59,900
 ──────────────────────────────────────────────────────────────
 
 ──────────────────────────────────────────────────────────────
   PRICE RETRIEVED
   Test    : Galaxy Test
-  Product : Samsung Galaxy S24 128GB Onyx Black
-  Price   : $699
+  Product : Ostand Q3 Air Original for S26 Ultra Case, 360° Magnetic Stand, MagSafe Compatible, Airbag Mil-Grade Drop Tested, Shockproof Galaxy S26 Ultra Back Cover, Shadow Black
+  Price   : 8,099
 ──────────────────────────────────────────────────────────────
 ```
 
@@ -122,10 +126,13 @@ cp .env.example .env
 ```
 
 ### 4. Run on LambdaTest
-
-```bash
 npm run test:lambdatest
-```
+
+# or manually
+LAMBDATEST=true npx playwright test
+
+# on Windows
+set LAMBDATEST=true && npx playwright test
 
 This sets `LAMBDATEST=true`, which switches `playwright.config.js` to use the LambdaTest CDP WebSocket endpoint instead of local browsers. Both test cases still run in parallel on the LambdaTest grid.
 
