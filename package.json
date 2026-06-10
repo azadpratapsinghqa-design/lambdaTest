@@ -1,0 +1,19 @@
+{
+  "name": "amazon-automation",
+  "version": "1.0.0",
+  "description": "Automated test suite for Amazon product search and cart using Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:parallel": "playwright test --workers=2",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "test:lambdatest": "LAMBDATEST=true playwright test --workers=2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  },
+  "dependencies": {
+    "@lambdatest/playwright-driver": "^1.0.7",
+    "dotenv": "^16.6.1"
+  }
+}
